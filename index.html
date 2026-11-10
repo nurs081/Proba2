@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данияр 40 жас & Алмар сүндет той</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SheetJS for Excel export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        goldDark: '#AA7C11',
+                        goldLight: '#F3E5AB',
+                        creamBg: '#FDFBF7',
+                        creamCard: '#F7F3EB',
+                        emeraldDark: '#0F3A2E',
+                    },
+                    fontFamily: {
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #2D3748;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Gold metallic text effect */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Ornate Gold Border Frame */
+        .ornate-border {
+            border: 2px solid #D4AF37;
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .ornate-border::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            pointer-events: none;
+        }
+
+        /* Soft Kazakhstan Ornament Background Elements */
+        .ornament-bg {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Kazakh Pattern Border SVG Divider */
+        .kazakh-divider {
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' viewBox='0 0 40 24'%3E%3Cpath fill='%23D4AF37' fill-opacity='0.6' d='M20 0 L40 12 L20 24 L0 12 Z M20 4 L8 12 L20 20 L32 12 Z'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-position: center;
+        }
+
+        /* Photo Frame */
+        .photo-frame {
+            border: 4px solid #D4AF37;
+            border-radius: 9999px;
+            box-shadow: 0 10px 25px rgba(15, 58, 46, 0.15);
+            padding: 6px;
+            background: #FFF;
+        }
+    </style>
+</head>
+<body class="ornament-bg min-h-screen flex flex-col justify-between selection:bg-gold selection:text-white">
+
+    <!-- Background Music Audio Tag (Auto Loop) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-creamBg/90 backdrop-blur-md border-b border-gold/30 px-4 py-3 flex justify-between items-center shadow-sm">
+        <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-gem text-gold text-xl"></i>
+            <span class="font-cormorant font-bold text-emeraldDark text-lg tracking-wide">Той Шақыру</span>
+        </div>
+        <div>
+            <button onclick="openAdminModal()" class="bg-emeraldDark/10 hover:bg-emeraldDark hover:text-white text-emeraldDark border border-emeraldDark/30 text-xs px-3 py-1.5 rounded-full font-medium transition duration-300 flex items-center space-x-1">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Админ Panel</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-xl mx-auto w-full px-4 py-6 space-y-10 text-center">
+
+        <!-- HERO SECTION -->
+        <section class="space-y-4 pt-2">
+            <div class="inline-block px-4 py-1 rounded-full bg-gold/10 border border-gold/40 text-goldDark text-xs font-semibold tracking-widest uppercase mb-2">
+                Шақыру хат
+            </div>
+            
+            <h1 class="font-cormorant text-4xl sm:text-5xl font-bold text-emeraldDark tracking-tight uppercase leading-tight">
+                Құрметті қонақтар!
+            </h1>
+            
+            <div class="kazakh-divider my-3"></div>
+
+            <p class="font-cormorant italic text-lg sm:text-xl text-gray-700 leading-relaxed px-2">
+                Сіздерді Даниярдың 40 жас мерейтойы мен Алмардың сүндет тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+            </p>
+
+            <!-- PHOTO SECTION -->
+            <div class="pt-4 pb-2 flex justify-center">
+                <div class="photo-frame max-w-[280px] sm:max-w-[320px] overflow-hidden">
+                    <img src="photo.jpg" alt="Данияр мен Алмар" class="rounded-full w-full h-auto object-cover transform hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400?text=Сурет+жүктелуде...';">
+                </div>
+            </div>
+
+            <!-- EVENT TITLE CARD -->
+            <div class="ornate-border bg-creamCard p-6 rounded-lg my-6 shadow-sm">
+                <h2 class="font-cormorant text-2xl sm:text-3xl font-bold text-emeraldDark uppercase tracking-wide">
+                    Данияр 40 жас <span class="text-gold">|</span> Алмар сүндет той
+                </h2>
+            </div>
+        </section>
+
+        <!-- DATE & TIME SECTION -->
+        <section class="space-y-4">
+            <h3 class="font-cormorant text-2xl font-bold text-emeraldDark uppercase tracking-wider flex items-center justify-center space-x-2">
+                <span class="h-px bg-gold/50 w-8"></span>
+                <span>Күн & Орны</span>
+                <span class="h-px bg-gold/50 w-8"></span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                <!-- Date & Time Card -->
+                <div class="bg-creamCard border border-gold/40 p-4 rounded-lg flex items-start space-x-3 shadow-sm">
+                    <div class="p-3 bg-emeraldDark text-gold rounded-full shrink-0 mt-1">
+                        <i class="fa-regular fa-calendar-check text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-semibold">Өткізілетін уақыты</div>
+                        <div class="font-cormorant text-xl font-bold text-emeraldDark">06 Желтоқсан 2026 жыл</div>
+                        <div class="text-sm font-semibold text-goldDark mt-0.5">Сағат: 16:00</div>
+                    </div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="bg-creamCard border border-gold/40 p-4 rounded-lg flex items-start space-x-3 shadow-sm">
+                    <div class="p-3 bg-emeraldDark text-gold rounded-full shrink-0 mt-1">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-semibold">Мекен-жайы</div>
+                        <div class="font-cormorant text-xl font-bold text-emeraldDark">Шу қаласы</div>
+                        <div class="text-sm text-gray-700 font-medium">"Даулет 2" мейрамханасы</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Button -->
+            <div class="pt-2">
+                <a href="https://www.google.com/maps/place/MQ35%2BGM+Daulet,+Shu,+Kazakhstan/@43.6062777,73.7443152,17z" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-emeraldDark hover:bg-emeraldDark/90 text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-map-location-dot text-gold"></i>
+                    <span>Картадан қарау (Google Maps)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- COUNTDOWN TIMER SECTION -->
+        <section class="bg-creamCard border border-gold/30 p-6 rounded-xl shadow-sm space-y-4">
+            <h3 class="font-cormorant text-2xl font-bold text-emeraldDark uppercase tracking-wide">Тойға дейін қалды:</h3>
+            
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
+                <div class="bg-emeraldDark text-white p-3 rounded-lg border border-gold/40">
+                    <div id="days" class="text-2xl sm:text-3xl font-bold font-cormorant text-gold">00</div>
+                    <div class="text-[10px] sm:text-xs uppercase font-medium text-gray-300 mt-1">Күн</div>
+                </div>
+                <div class="bg-emeraldDark text-white p-3 rounded-lg border border-gold/40">
+                    <div id="hours" class="text-2xl sm:text-3xl font-bold font-cormorant text-gold">00</div>
+                    <div class="text-[10px] sm:text-xs uppercase font-medium text-gray-300 mt-1">Сағат</div>
+                </div>
+                <div class="bg-emeraldDark text-white p-3 rounded-lg border border-gold/40">
+                    <div id="minutes" class="text-2xl sm:text-3xl font-bold font-cormorant text-gold">00</div>
+                    <div class="text-[10px] sm:text-xs uppercase font-medium text-gray-300 mt-1">Минут</div>
+                </div>
+                <div class="bg-emeraldDark text-white p-3 rounded-lg border border-gold/40">
+                    <div id="seconds" class="text-2xl sm:text-3xl font-bold font-cormorant text-gold">00</div>
+                    <div class="text-[10px] sm:text-xs uppercase font-medium text-gray-300 mt-1">Секунд</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAM / SCHEDULE -->
+        <section class="space-y-4">
+            <h3 class="font-cormorant text-2xl font-bold text-emeraldDark uppercase tracking-wider flex items-center justify-center space-x-2">
+                <span class="h-px bg-gold/50 w-8"></span>
+                <span>Той Бағдарламасы</span>
+                <span class="h-px bg-gold/50 w-8"></span>
+            </h3>
+
+            <div class="bg-creamCard border border-gold/30 rounded-xl p-5 space-y-4 text-left shadow-sm">
+                <div class="flex items-center space-x-4 border-b border-gold/20 pb-3">
+                    <span class="bg-emeraldDark text-gold text-sm font-bold px-3 py-1 rounded-full shrink-0">16:00</span>
+                    <span class="text-gray-800 font-medium">Қонақтардың жиналуы & Қарсы алу</span>
+                </div>
+                <div class="flex items-center space-x-4 border-b border-gold/20 pb-3">
+                    <span class="bg-emeraldDark text-gold text-sm font-bold px-3 py-1 rounded-full shrink-0">17:00</span>
+                    <span class="text-gray-800 font-medium">Салтанатты тойдың басталуы</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="bg-emeraldDark text-gold text-sm font-bold px-3 py-1 rounded-full shrink-0">18:00</span>
+                    <span class="text-gray-800 font-medium">Шоу бағдарлама & Тілектер</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP FORM SECTION -->
+        <section class="ornate-border bg-emeraldDark text-white p-6 sm:p-8 rounded-xl shadow-lg space-y-6">
+            <div class="space-y-2 text-center">
+                <h3 class="font-cormorant text-3xl font-bold text-gold">Тойға қатысуыңызды растаңыз</h3>
+                <p class="text-xs sm:text-sm text-gray-200">Сіздің жауабыңыз біз үшін өте маңызды!</p>
+            </div>
+
+            <form id="rsvpForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gold mb-1">Аты-жөніңіз:</label>
+                    <input type="text" id="guestName" required placeholder="Мысалы: Арман & Айнұр" class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 border border-gold focus:outline-none focus:ring-2 focus:ring-gold text-sm">
+                </div>
+
+                <div class="space-y-2 pt-1">
+                    <label class="block text-xs font-semibold uppercase text-gold mb-1">Қатысу мәртебесі:</label>
+                    <div class="flex items-center space-x-3 bg-emeraldDark/80 border border-gold/30 p-3 rounded-lg">
+                        <input type="radio" id="attendingYes" name="attendance" value="Иә, келемін!" checked class="w-4 h-4 text-gold focus:ring-gold accent-gold">
+                        <label for="attendingYes" class="text-sm font-medium text-white cursor-pointer">Иә, қуана қатысамын!</label>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-emeraldDark/80 border border-gold/30 p-3 rounded-lg">
+                        <input type="radio" id="attendingNo" name="attendance" value="Өкінішке орай, келе алмаймын" class="w-4 h-4 text-gold focus:ring-gold accent-gold">
+                        <label for="attendingNo" class="text-sm font-medium text-gray-300 cursor-pointer">Өкінішке орай, келе алмаймын</label>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-gold hover:bg-goldDark text-emeraldDark font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 text-sm tracking-wider uppercase mt-4">
+                    Жауапты жіберу
+                </button>
+            </form>
+
+            <div id="successMsg" class="hidden bg-creamCard text-emeraldDark border border-gold p-4 rounded-lg text-center font-medium">
+                <i class="fa-solid fa-circle-check text-gold text-2xl mb-1"></i>
+                <p>Жауабыңыз қабылданды! Ықыласыңызға рақмет!</p>
+            </div>
+        </section>
+
+        <!-- WHATSAPP SHARE BUTTON -->
+        <section class="pt-2 pb-6">
+            <a id="waShareBtn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md flex items-center justify-center space-x-2 transition duration-300 text-sm">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Шақыртуды WhatsApp арқылы бөлісу</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-creamCard border-t border-gold/30 text-center py-6 text-xs text-gray-600">
+        <p class="font-cormorant font-bold text-emeraldDark text-base">Данияр & Алмар Той 2026</p>
+        <p class="mt-1">Барлық құқықтар қорғалған</p>
+    </footer>
+
+    <!-- ADMIN MODAL -->
+    <div id="adminModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 border border-gold/40 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- AUTH FORM -->
+            <div id="adminAuth" class="space-y-4 py-6 text-center">
+                <div class="w-12 h-12 bg-emeraldDark/10 text-emeraldDark rounded-full flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="font-cormorant text-2xl font-bold text-emeraldDark">Админ Панельге Кіру</h3>
+                <div class="max-w-xs mx-auto space-y-3">
+                    <input type="password" id="adminPassword" placeholder="Құпия сөзді енгізіңіз" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-center text-sm focus:outline-none focus:ring-2 focus:ring-gold">
+                    <button onclick="checkAdminPassword()" class="w-full bg-emeraldDark text-white py-2 rounded-lg text-sm font-semibold hover:bg-emeraldDark/90">Кіру</button>
+                    <p id="authError" class="text-xs text-red-500 hidden">Құпия сөз қате!</p>
+                </div>
+            </div>
+
+            <!-- DASHBOARD CONTENT (Hidden until auth) -->
+            <div id="adminDashboard" class="hidden space-y-4 flex-1 overflow-hidden flex flex-col">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="font-cormorant text-2xl font-bold text-emeraldDark">Қонақтар тізімі</h3>
+                    <div class="flex space-x-2">
+                        <button onclick="fetchCloudGuests()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs px-3 py-1.5 rounded-lg border flex items-center space-x-1">
+                            <i class="fa-solid fa-rotate"></i>
+                            <span>Жаңарту</span>
+                        </button>
+                        <button onclick="exportToExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3 py-1.5 rounded-lg flex items-center space-x-1">
+                            <i class="fa-solid fa-file-excel"></i>
+                            <span>Excel жүктеу</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div class="bg-emerald-50 p-2 rounded-lg border border-emerald-200">
+                        <div class="text-gray-500">Жалпы жауап</div>
+                        <div id="statTotal" class="text-lg font-bold text-emerald-700">0</div>
+                    </div>
+                    <div class="bg-blue-50 p-2 rounded-lg border border-blue-200">
+                        <div class="text-gray-500">Келетіндер</div>
+                        <div id="statYes" class="text-lg font-bold text-blue-700">0</div>
+                    </div>
+                    <div class="bg-red-50 p-2 rounded-lg border border-red-200">
+                        <div class="text-gray-500">Келе алмайды</div>
+                        <div id="statNo" class="text-lg font-bold text-red-700">0</div>
+                    </div>
+                </div>
+
+                <!-- GUESTS TABLE -->
+                <div class="flex-1 overflow-y-auto border rounded-lg">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-gray-50 sticky top-0 border-b">
+                            <tr>
+                                <th class="p-2 font-semibold text-gray-600">#</th>
+                                <th class="p-2 font-semibold text-gray-600">Аты-жөні</th>
+                                <th class="p-2 font-semibold text-gray-600">Мәртебесі</th>
+                                <th class="p-2 font-semibold text-gray-600">Уақыты</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody" class="divide-y">
+                            <!-- Rows inserted dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ----------------------------------------------------
+        // REAL-TIME SHARED CLOUD DATABASE CONFIGURATION (JSONBin)
+        // ----------------------------------------------------
+        const BIN_ID = "66f7f285e41b4d34e4389920"; 
+        const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+        const API_KEY = "$2a$10$7R6A5N1jGkW9Lw8FzK/U0uV1pD1R9d3Zf1nJ2X0K5M9P1L2O3N4M5"; 
+
+        const ADMIN_PASS = "Sania2026";
+        let guestsData = [];
+
+        // ----------------------------------------------------
+        // MUSIC PLAYBACK LOGIC (Auto Play on user interaction)
+        // ----------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bgMusic');
+            
+            const startMusic = () => {
+                if (bgMusic && bgMusic.paused) {
+                    bgMusic.play().catch(() => {});
+                }
+                document.removeEventListener('click', startMusic);
+                document.removeEventListener('touchstart', startMusic);
+                document.removeEventListener('scroll', startMusic);
+            };
+
+            document.addEventListener('click', startMusic);
+            document.addEventListener('touchstart', startMusic);
+            document.addEventListener('scroll', startMusic);
+
+            // Fetch initial guest list from cloud
+            fetchCloudGuests();
+
+            // Setup WhatsApp share button
+            const waBtn = document.getElementById('waShareBtn');
+            const pageUrl = window.location.href;
+            const waText = encodeURIComponent(`Құрметті қонақ! Даниярдың 40 жас мерейтойы мен Алмардың сүндет тойына арналған шақыру хатымызды қабыл алыңыз:\n${pageUrl}`);
+            waBtn.href = `https://api.whatsapp.com/send?text=${waText}`;
+        });
+
+        // ----------------------------------------------------
+        // COUNTDOWN TIMER (Target: 06.12.2026 16:00)
+        // ----------------------------------------------------
+        const eventDate = new Date("December 6, 2026 16:00:00").getTime();
+        
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // ----------------------------------------------------
+        // CLOUD STORAGE OPERATIONS (JSONBin Real-Time Sync)
+        // ----------------------------------------------------
+        async function fetchCloudGuests() {
+            try {
+                const response = await fetch(`${BIN_URL}/latest?nocache=${Date.now()}`, {
+                    method: "GET",
+                    headers: { 
+                        "X-Master-Key": API_KEY,
+                        "X-Bin-Meta": "false"
+                    }
+                });
+                if (response.ok) {
+                    const result = await response.json();
+                    const cloudList = Array.isArray(result) ? result : (result.guests || result.record?.guests || []);
+                    if (Array.isArray(cloudList)) {
+                        guestsData = cloudList;
+                        setLocalCache(guestsData);
+                        renderAdminStatsAndTable();
+                    }
+                }
+            } catch (err) {
+                console.log("Using cached guests data:", err);
+                guestsData = getLocalCache();
+                renderAdminStatsAndTable();
+            }
+        }
+
+        async function syncCloudGuests(newList) {
+            try {
+                await fetch(BIN_URL, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Master-Key": API_KEY
+                    },
+                    body: JSON.stringify({ guests: newList })
+                });
+            } catch (err) {
+                console.log("Cloud sync delayed:", err);
+            }
+        }
+
+        function getLocalCache() {
+            try {
+                return JSON.parse(localStorage.getItem('daniyar_almar_guests') || '[]');
+            } catch(e) { return []; }
+        }
+
+        function setLocalCache(data) {
+            try {
+                localStorage.setItem('daniyar_almar_guests', JSON.stringify(data));
+            } catch(e) {}
+        }
+
+        // Auto Refresh interval for Admin Dashboard (every 5s)
+        setInterval(() => {
+            fetchCloudGuests();
+        }, 5000);
+
+        // ----------------------------------------------------
+        // RSVP FORM SUBMISSION
+        // ----------------------------------------------------
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const nameInput = document.getElementById('guestName');
+            const statusRadio = document.querySelector('input[name="attendance"]:checked');
+
+            if (!nameInput.value.trim()) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Жіберілуде...`;
+
+            // Fetch current list first to prevent race condition overwrite
+            await fetchCloudGuests();
+
+            const newEntry = {
+                id: Date.now(),
+                name: nameInput.value.trim(),
+                status: statusRadio ? statusRadio.value : 'Иә, келемін!',
+                time: new Date().toLocaleDateString('kk-KZ') + ' ' + new Date().toLocaleTimeString('kk-KZ', {hour:'2-digit', minute:'2-digit'})
+            };
+
+            guestsData.unshift(newEntry);
+            setLocalCache(guestsData);
+            
+            // Push updated list to Cloud
+            await syncCloudGuests(guestsData);
+
+            document.getElementById('rsvpForm').classList.add('hidden');
+            document.getElementById('successMsg').classList.remove('hidden');
+        }
+
+        // ----------------------------------------------------
+        // ADMIN PANEL FUNCTIONS
+        // ----------------------------------------------------
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function checkAdminPassword() {
+            const inputPass = document.getElementById('adminPassword').value;
+            const errField = document.getElementById('authError');
+            
+            if (inputPass === ADMIN_PASS) {
+                document.getElementById('adminAuth').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                errField.classList.add('hidden');
+                fetchCloudGuests();
+            } else {
+                errField.classList.remove('hidden');
+            }
+        }
+
+        function renderAdminStatsAndTable() {
+            const tbody = document.getElementById('adminTableBody');
+            if (!tbody) return;
+
+            tbody.innerHTML = '';
+            
+            let yesCount = 0;
+            let noCount = 0;
+
+            guestsData.forEach((item, index) => {
+                const isYes = item.status.includes('Иә');
+                if (isYes) yesCount++; else noCount++;
+
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                row.innerHTML = `
+                    <td class="p-2 text-gray-400 font-medium">${guestsData.length - index}</td>
+                    <td class="p-2 font-semibold text-gray-800">${escapeHtml(item.name)}</td>
+                    <td class="p-2">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isYes ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}">
+                            ${escapeHtml(item.status)}
+                        </span>
+                    </td>
+                    <td class="p-2 text-gray-400 text-[10px]">${item.time || ''}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            document.getElementById('statTotal').innerText = guestsData.length;
+            document.getElementById('statYes').innerText = yesCount;
+            document.getElementById('statNo').innerText = noCount;
+        }
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // ----------------------------------------------------
+        // EXPORT TO EXCEL
+        // ----------------------------------------------------
+        function exportToExcel() {
+            if (guestsData.length === 0) {
+                alert("Жүктейтін қонақтар тізімі бос!");
+                return;
+            }
+
+            const excelData = guestsData.map((g, i) => ({
+                "№": i + 1,
+                "Аты-жөні": g.name,
+                "Жауабы": g.status,
+                "Тіркелген уақыты": g.time
+            }));
+
+            const worksheet = XLSX.utils.json_to_sheet(excelData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Қонақтар");
+            XLSX.writeFile(workbook, "Daniyar_Almar_Toi_Guests.xlsx");
+        }
+    </script>
+</body>
+</html>
